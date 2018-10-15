@@ -25,8 +25,13 @@ public class RabbitMessageProducer {
 	@Autowired
 	private AmqpTemplate amqpTemplate;
 	
-	public void produceMsg(String message){
-		amqpTemplate.convertAndSend(EXCHANGE, ROUTING_KEY, message);
-		log.debug("Messaggio inviato: [" + message + "]");
+	public void produceMsg(String message){					
+	    log.debug("invio a coda Rabbit Exchange ["+EXCHANGE+"] Routing ["+ROUTING_KEY+"]" );
+	    try {
+	    	amqpTemplate.convertAndSend(EXCHANGE, ROUTING_KEY, message);
+	    	log.info("Effettuato invio a coda Rabbit Exchange ["+EXCHANGE+"] Routing ["+ROUTING_KEY+"]" );
+		} catch (Exception e) {
+			log.error("Fallito invio a coda Rabbit Exchange ["+EXCHANGE+"] Routing ["+ROUTING_KEY+"]",e);
+		}	    		
 	}	
 }

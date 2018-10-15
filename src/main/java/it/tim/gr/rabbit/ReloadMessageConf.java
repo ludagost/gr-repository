@@ -37,7 +37,7 @@ public class ReloadMessageConf {
 	
     @Bean
     public ConnectionFactory connectionFactory() {            	
-    	System.out.println("Begin connection factory NEW");
+//    	System.out.println("Begin connection factory NEW");
     	org.springframework.amqp.rabbit.connection.RabbitConnectionFactoryBean rb= new org.springframework.amqp.rabbit.connection.RabbitConnectionFactoryBean();
     	Resource sslPropertiesLocation=null;
 		rb.setSslPropertiesLocation(sslPropertiesLocation);
@@ -72,7 +72,7 @@ public class ReloadMessageConf {
     	
 		if (NET_DEBUG.equals("true")) {
 			System.setProperty("javax.net.debug", "all");
-			System.out.println("Logging debug all");
+//			System.out.println("Logging debug all");
 			System.setProperty("javax.net.debug", "ssl:handshake:verbose");
 			}
 		
@@ -85,7 +85,7 @@ public class ReloadMessageConf {
 			throw new RuntimeException(e);
 		}
 
-        System.out.println("Returning Single connection factory.");
+//        System.out.println("Returning Single connection factory.");
         return connectionFactory;				
     }
            
