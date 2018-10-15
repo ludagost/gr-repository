@@ -1,0 +1,38 @@
+#Custom   
+integration:
+  sdp:
+    ismobilepath: "${sdp_ismobile_path:http://localhost:8080}"
+    blpath: "${sdp_bl_path:http://localhost:8080}"
+    scpath: "${sdp_sc_path:http://localhost:8080}"
+    rolpath: "${sdp_rol_path:http://localhost:8080}"
+    cmsbasepath: "${sdp_cms_path:http://localhost:8080}"
+    fraudpath: "${sdp_fraud_path:http://localhost:8080}" 
+  soap:
+    sellabasepath: "${sella_path:https://obgcolcls.pd.tim.it:7012}"
+    keystorepath: "${KEYSTORE_PATH:C:\__PROGETTI\____FLY_TOGHETER}"
+  gr:
+    adjustbonusservice: "${gr_adjustbonus_service:http://localhost:8084}"
+    commitbonusservice: "${gr_commitbonus_service:http://localhost:8083}"
+    payservice:         "${gr_pay_service:http://localhost:8082}"
+    pinservice:         "${gr_pin_service:http://localhost:8081}"
+    reloadservice:      "${gr_reload_service:http://localhost:8085}"
+    
+    
+gr:
+ ems: 
+  queue: "${gr_ems_queue:GR_output}" 
+ rabbit:
+  queue:
+    exchange: "${gr_output_rabbit_queue_exchange:amq.direct}"
+    routing_key: "${gr_output_rabbit_queue_routing_key:O2C}"
+    name: "${gr_input_rabbit_queue_name:raload.message.test}"
+    flags: "${gr_input_rabbit_queue_connection_flags:0}"
+    net_debug: "${gr_input_rabbit_queue_connection_net_debug:true}"
+    connection:
+      host: "${gr_input_rabbit_queue_connection_host:localhost}"
+      vhost: "${gr_input_rabbit_queue_connection_vhost:/}"
+      port: "${gr_input_rabbit_queue_connection_port:5672}"
+      user: "${gr_input_rabbit_queue_connection_usert:guest}"
+      pwd: "${gr_input_rabbit_queue_connection_pwd:guest}"
+
+    
